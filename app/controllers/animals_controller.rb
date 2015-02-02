@@ -1,6 +1,7 @@
 class AnimalsController < ApplicationController
   def index
     @animals = Animal.all
+    @animal = Animal.find_by_id(27)
   end
 
   def show

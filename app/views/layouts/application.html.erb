@@ -14,9 +14,10 @@
       <div class="ui inverted button right floated">
         <%= link_to "Sign Out", signout_path %>
       </div>
-      <!-- <div class="ui inverted right floated"> -->
-        <!-- <span class="ui inverted right floated" id="welcome">Welcome, <%= current_user.firstname %></span> -->
-      <!-- </div> -->
+      <!-- try menu -->
+      <div class="ui inverted right floated">
+        <span class="ui inverted right floated" id="welcome">Welcome, <%= current_user.firstname %></span>
+      </div>
     <% else %>
       <div class="ui inverted button right floated">
         <%= link_to "Register", signup_path %>

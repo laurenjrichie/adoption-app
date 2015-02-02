@@ -5,8 +5,31 @@
         <div class="ui segment left-side">
           <h2 class="ui center aligned header">Available pets from the SPCA</h2>
 
-          <div class="ui special cards">
+          <div class="ui floating dropdown labeled icon button">
+            <i class="filter icon"></i>
+            <span class="text">Filter Animals</span>
+            <div class="menu">
+              <div class="ui icon search input">
+                <i class="search icon"></i>
+                <input type="text" name="search" placeholder="Search animals...">
+              </div>
+              <div class="divider"></div>
+              <div class="header">
+                <i class="tags icon"></i>
+                Header
+              </div>
+              <div class="item">
+                <div class="ui red empty circular label"></div>
+                Dogs
+              </div>
+              <div class="item">
+                <div class="ui blue empty circular label"></div>
+                Cats
+              </div>
+            </div>
+          </div>
 
+          <div class="ui special cards">
             <% @animals.each do |animal| %>
               <div class="card" data-id="<%= animal.id %>">
                 <div class="dimmable image">
@@ -33,32 +56,32 @@
         </div>
       </div>
       <div class="six wide column">
-        <div class="ui segment right-side">
-          <h2 class="ui center aligned header">FEATURED</h2>
+        <h2 class="ui top attached center aligned header">FEATURED</h2>
+        <div class="ui  attached segment right-side">
           <div class="ui fluid card">
             <div class="image">
-              <%= image_tag("kitten.jpg") %>
+              <%= image_tag(@animal.image_url) %>
             </div>
             <div class="content">
               <a class="right floated created">
                 <div class="ui teal button">ADOPT ME!</div>
               </a>
-              <a class="header">Name</a>
+              <a class="header"><%= @animal.name %></a>
               <div class="meta">
-                <p class="group">Gender</p>
-                <p class="group">Weight</p>
+                <p class="group"><%= @animal.gender %></p>
+                <p class="group">AGE: <%= @animal.age %></p>
               </div>
               <div class="description">
-                Story goes here.
+                <%= @animal.story %>
               </div>
             </div>
             <div class="extra content">
               <a class="right floated created">
-                SPCA ID#
+                SPCA ID: <%= @animal.spca_id %>
               </a>
               <a class="friends">
                 <i class="user icon"></i>
-                Age
+                <%= @animal.weight %>
               </a>
             </div>
           </div>
