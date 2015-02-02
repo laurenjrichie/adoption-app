@@ -1,0 +1,35 @@
+<div class="ui grid">
+  <div class="fourteen wide centered column">
+
+    <h2>Log in</h2>
+
+    <%= form_tag signin_path, html: {class: "ui form"} do |f| %>
+
+      <% if @sign_in_error %>
+        <p><%= @sign_in_error %></p>
+      <% end %>
+
+      <div class="required field">
+        <%= label_tag :email %>
+        <div class="ui icon input">
+          <%= email_field_tag :email %>
+          <i class="mail icon"></i>
+        </div>
+      </div>
+      <div class="required field">
+        <%= label_tag :password %>
+        <div class="ui icon input">
+          <%= password_field_tag :password %>
+          <i class="lock icon"></i>
+        </div>
+      </div>
+      <div class="ui hidden divider"></div>
+      <!-- <div class="ui error message">
+        <div class="header">We noticed some issues</div>
+      </div> -->
+      <%= submit_tag "Sign In", class: "ui submit button" %>
+
+    <% end %>
+
+  </div>
+</div>
