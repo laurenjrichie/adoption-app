@@ -6,46 +6,27 @@
           <h2 class="ui center aligned header">Available pets from the SPCA</h2>
 
           <div class="ui special cards">
-            <div class="card" data-spcaid="">
-              <div class="dimmable image">
-                <div class="ui dimmer"> <!-- dimmer not working -->
-                  <div class="content">
-                    <div class="center">
-                      <div class="ui inverted button">Learn more</div>
+
+            <% @animals.each do |animal| %>
+              <div class="card" data-spcaid="<%= animal.spca_id %>">
+                <div class="dimmable image">
+                  <div class="ui dimmer"> <!-- lessen the opacity here with css override -->
+                    <div class="content">
+                      <div class="center">
+                        <div class="ui inverted button">Learn more</div>
+                      </div>
                     </div>
                   </div>
+                  <%= image_tag(animal.image_url) %>
                 </div>
-                <!-- <img src="http://openphoto.net/gallery/image/view/25066" alt="cat-image" /> -->
-                <%= image_tag("cat_asleep.jpg") %>
-              </div>
-              <div class="content">
-                <div class="header">Name</div>
-                <div class="meta">
-                  <a class="group">Location</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card" data-spcaid="">
-              <div class="dimmable image">
-                <div class="ui dimmer"> <!-- dimmer not working -->
-                  <div class="content">
-                    <div class="center">
-                      <div class="ui inverted button">Learn more</div>
-                    </div>
+                <div class="content">
+                  <div class="header"><%= animal.name %></div>
+                  <div class="meta">
+                    <a class="group"><%= animal.gender %></a>
                   </div>
                 </div>
-                <!-- <img src="http://openphoto.net/gallery/image/view/25066" alt="cat-image" /> -->
-                <%= image_tag("cat_asleep.jpg") %>
               </div>
-              <div class="content">
-                <div class="header">Name</div>
-                <div class="meta">
-                  <a class="group">Location</a>
-                </div>
-              </div>
-            </div>
-
+            <% end %>
 
           </div>
 

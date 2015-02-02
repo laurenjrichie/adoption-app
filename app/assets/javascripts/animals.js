@@ -1,7 +1,14 @@
 $(document).ready(function(){
+  cardsDimmer();
   detailPanel();
   applyForm();
 });
+
+function cardsDimmer() {
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
+}
 
 function detailPanel() {
   var cards = $("div.ui.special.cards")
