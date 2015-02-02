@@ -20,3 +20,9 @@
 $('.special.cards .image').dimmer({
   on: 'hover'
 });
+
+/*span #welcome {
+  float: right;
+  text-align: right;
+  display: block;
+}*/

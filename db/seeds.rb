@@ -1,33 +1,46 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-response = RestClient.get "https://www.sfspca.org/adoptions/cats"
-doc = Nokogiri::HTML(response)
-cat_links = doc.css('div.field-name-title h2 a')
-# p cat_links.length # only 18
-
-
-cat_links.each do |link|
-  url = "https://www.sfspca.org" + link.attr('href')
-  data = RestClient.get(url).body # this gives you one big string
-  p result = JSON.parse(data) # get back an array of hashes. Only hitting first cat here.
-  puts "\n"
-  puts "***"
-  puts "\n"
-  # result.each do |cat|
-    # Animal.create(title: movie["title"], year: movie["year"], plot: movie["plot"], image_url: movie["image_url"])
-  # end
+def get_links(url)
+  page_response = RestClient.get url
+  page_doc = Nokogiri::HTML(page_response)
+  links = page_doc.css('div.field-name-title h2 a')
 end
 
-# t.integer  "spca_id"
-# t.string   "name"
-# t.string   "gender"
-# t.string   "age"
-# t.string   "weight"
-# t.string   "image_url"
-# t.string   "story"
+page1_cat_links = get_links("https://www.sfspca.org/adoptions/cats")
+page2_cat_links = get_links("https://www.sfspca.org/adoptions/cats?page=1")
+page3_cat_links = get_links("https://www.sfspca.org/adoptions/cats?page=2")
+page1_dog_links = get_links("https://www.sfspca.org/adoptions/dogs")
+page2_dog_links = get_links("https://www.sfspca.org/adoptions/dogs?page=1")
+page3_dog_links = get_links("https://www.sfspca.org/adoptions/dogs?page=2")
+
+def create_animal(links)
+  links.each do |link|
+    url = "https://www.sfspca.org" + link.attr('href')
+    response = RestClient.get(url).body
+    doc = Nokogiri::HTML(response)
+
+    name = doc.css('div.field-name-title h1').children[0].content
+    spca_id = doc.css('div.field-name-field-animal-id div.field-item').children[0].content.strip
+    gender = doc.css('div.field-name-field-gender div.field-item').children[0].content.strip
+    age = doc.css('div.field-name-field-animal-age div.field-item').children[0].content.strip
+    weight = doc.css('div.field-name-field-animal-weight div.field-item').children[0].content.strip
+    image_url = doc.css('ul.slides').children[0].children[1].attributes["src"].value
+    story = doc.css('div.body.field p').children[0].content
+
+    Animal.create(
+      name: name,
+      spca_id: spca_id,
+      gender: gender,
+      age: age,
+      weight: weight,
+      image_url: image_url,
+      story: story,
+    )
+
+  end
+end
+
+create_animal(page1_cat_links)
+create_animal(page2_cat_links)
+create_animal(page3_cat_links)
+create_animal(page1_dog_links)
+create_animal(page2_dog_links)
+create_animal(page3_dog_links)
