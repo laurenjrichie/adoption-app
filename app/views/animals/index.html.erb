@@ -1,0 +1,94 @@
+<div class="ui inverted segment">
+  <div class="ui inverted black button right floated">Log In</div>
+  <div class="ui inverted teal button right floated">Register</div>
+  <h1>Adoptable Pets in San Francisco</h1>
+</div>
+
+<div class="ui grid">
+  <div class="fourteen wide centered column">
+    <div class="ui grid">
+      <div class="ten wide column">
+        <div class="ui segment left-side">
+          <h2 class="ui center aligned header">Available pets from the SPCA</h2>
+
+          <div class="ui special cards">
+            <div class="card" data-spcaid="">
+              <div class="dimmable image">
+                <div class="ui dimmer"> <!-- dimmer not working -->
+                  <div class="content">
+                    <div class="center">
+                      <div class="ui inverted button">Learn more</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <img src="http://openphoto.net/gallery/image/view/25066" alt="cat-image" /> -->
+                <%= image_tag("cat_asleep.jpg") %>
+              </div>
+              <div class="content">
+                <div class="header">Name</div>
+                <div class="meta">
+                  <a class="group">Location</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" data-spcaid="">
+              <div class="dimmable image">
+                <div class="ui dimmer"> <!-- dimmer not working -->
+                  <div class="content">
+                    <div class="center">
+                      <div class="ui inverted button">Learn more</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <img src="http://openphoto.net/gallery/image/view/25066" alt="cat-image" /> -->
+                <%= image_tag("cat_asleep.jpg") %>
+              </div>
+              <div class="content">
+                <div class="header">Name</div>
+                <div class="meta">
+                  <a class="group">Location</a>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+      <div class="six wide column">
+        <div class="ui segment right-side">
+          <h2 class="ui center aligned header">FEATURED</h2>
+          <div class="ui fluid card">
+            <div class="image">
+              <%= image_tag("kitten.jpg") %>
+            </div>
+            <div class="content">
+              <a class="right floated created">
+                <div class="ui teal button">ADOPT ME!</div>
+              </a>
+              <a class="header">Name</a>
+              <div class="meta">
+                <p class="group">Gender</p>
+                <p class="group">Weight</p>
+              </div>
+              <div class="description">
+                Story goes here.
+              </div>
+            </div>
+            <div class="extra content">
+              <a class="right floated created">
+                SPCA ID#
+              </a>
+              <a class="friends">
+                <i class="user icon"></i>
+                Age
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,3 +15,8 @@
  */
 
 @import "semantic-ui";
+/*@import "semantic-ui/collections/menu";*/
+
+$('.special.cards .image').dimmer({
+  on: 'hover'
+});

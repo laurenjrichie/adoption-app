@@ -27,9 +27,26 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
+gem 'nokogiri'
+gem 'rest-client'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
+group :production do
+  gem "rails_12factor"
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
