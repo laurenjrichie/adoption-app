@@ -1,0 +1,67 @@
+<div class="ui grid">
+  <div class="fourteen wide centered column">
+
+    <h2>Register for an account</h2>
+
+    <%= form_for @user, url: signup_path, html: {class: "ui form"} do |f| %>
+
+      <% if @user.errors.present? %>
+        <div class="ui bulleted list">
+          <% @user.errors.full_messages.each do |message| %>
+            <span class="item">
+              <%= message %>
+            </span>
+          <% end %>
+        </div>
+      <% end %>
+
+      <h4 class="ui dividing header">Account Information</h4>
+
+      <div class="two fields">
+        <div class="required field">
+          <label>Name</label>
+          <div class="two fields">
+            <div class="field">
+              <%= f.text_field :firstname, placeholder: "First Name" %>
+            </div>
+            <div class="field">
+              <%= f.text_field :lastname, placeholder: "Last Name" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="required field">
+          <%= f.label :email %>
+          <div class="ui icon input">
+            <%= f.email_field :email, placeholder: "Email" %>
+            <i class="mail icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="two fields">
+        <div class="required field">
+          <%= f.label :password %>
+          <div class="ui icon input">
+            <%= f.password_field :password %>
+            <i class="lock icon"></i>
+          </div>
+        </div>
+        <div class="required field">
+          <%= f.label :password_confirmation %>
+          <div class="ui icon input">
+            <%= f.password_field :password_confirmation %>
+            <i class="lock icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ui hidden divider"></div>
+      <!-- <div class="ui error message">
+        <div class="header">We noticed some issues</div>
+      </div> -->
+      <%= f.submit "Register", class: "ui submit button" %>
+
+    <% end %>
+
+  </div>
+</div>
