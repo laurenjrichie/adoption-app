@@ -60,11 +60,21 @@ function detailPanel() {
 function applyForm() {
   $("div.ui.segment.right-side").on("click", "div.ui.teal.button", function(event) {
     $("div.ui.segment.left-side").empty().append(formHTML);
+    backToAnimals();
+  });
+}
+
+function backToAnimals() {
+  $(".ui.segment.left-side").on("click", "#back-to-animals", function() {
+    window.location = "";
   });
 }
 
 function formHTML() {
   return '\
+  <div class="ui large breadcrumb">\
+    <a class="section" id="back-to-animals"><i class="long arrow left icon"></i>Back to animals list</a>\
+  </div>\
   <h2 class="ui center aligned header">Adopt me!</h2>\
   <form class="ui form">\
     <h4 class="ui dividing header">Personal Information</h4>\
