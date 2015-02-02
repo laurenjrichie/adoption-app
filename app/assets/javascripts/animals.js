@@ -13,37 +13,41 @@ function cardsDimmer() {
 function detailPanel() {
   var cards = $("div.ui.special.cards")
 
-  cards.on('click', 'img', function(event) {
-    console.log("click");
-    $("div.ui.segment.right-side").empty().append('\
-      <div class="ui fluid card">\
-        <div class="image">\
-          <img src="kitten.jpg">\
-        </div>\
-        <div class="content">\
-          <a class="right floated created">\
-            <div class="ui teal button">ADOPT ME!</div>\
-          </a>\
-          <a class="header">Name</a>\
-          <div class="meta">\
-            <p class="group">Gender</p>\
-            <p class="group">Weight</p>\
+  cards.on('click', '.ui.inverted.button', function(event) {
+    var id = $(this).parent().parent().parent().parent().parent().data('id');
+    $.ajax('/animals/' + id, {dataType: "json"}).done(function(data){
+      $("div.ui.segment.right-side").empty().append('\
+        <div class="ui fluid card">\
+          <div class="image">\
+            <img src="' + data.image_url + '">\
           </div>\
-          <div class="description">\
-            Story goes here.\
+          <div class="content">\
+            <a class="right floated created">\
+              <div class="ui teal button">ADOPT ME!</div>\
+            </a>\
+            <a class="header">' + data.name + '</a>\
+            <div class="meta">\
+              <p class="group">' + data.gender + '</p>\
+              <p class="group">AGE: ' + data.age + '</p>\
+            </div>\
+            <div class="description">\
+              ' + data.story + '\
+            </div>\
+          </div>\
+          <div class="extra content">\
+            <a class="right floated created">\
+              SPCA ID: ' + data.spca_id + '\
+            </a>\
+            <a class="friends">\
+              ' + data.weight + '\
+            </a>\
           </div>\
         </div>\
-        <div class="extra content">\
-          <a class="right floated created">\
-            SPCA ID#\
-          </a>\
-          <a class="friends">\
-            <i class="user icon"></i>\
-            Age\
-          </a>\
-        </div>\
-      </div>\
-    ');
+      ');
+
+    }).fail(function(){
+
+    });
   });
 }
 

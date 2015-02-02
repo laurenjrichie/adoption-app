@@ -8,7 +8,7 @@
           <div class="ui special cards">
 
             <% @animals.each do |animal| %>
-              <div class="card" data-spcaid="<%= animal.spca_id %>">
+              <div class="card" data-id="<%= animal.id %>">
                 <div class="dimmable image">
                   <div class="ui dimmer"> <!-- lessen the opacity here with css override -->
                     <div class="content">

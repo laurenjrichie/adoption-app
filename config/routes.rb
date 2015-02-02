@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'animals#index'
+  get '/animals/:id' => 'animals#show'
 
   get '/signup' => 'registrations#new', as: :signup
   post '/signup' => 'registrations#create'
