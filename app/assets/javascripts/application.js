@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require semantic-ui
+//= require handlebars-v2.0.0.js
