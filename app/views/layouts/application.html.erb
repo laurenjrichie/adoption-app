@@ -9,24 +9,20 @@
   <link rel="stylesheet" href="/semantic-UI/dist/semantic.min.css" charset="utf-8">
 </head>
 <body>
-  <div class="ui inverted segment">
-    <% if current_user %>
-      <div class="ui inverted button right floated">
-        <%= link_to "Sign Out", signout_path %>
-      </div>
-      <!-- try menu -->
-      <div class="ui inverted right floated">
-        <span class="ui inverted right floated" id="welcome">Welcome, <%= current_user.firstname %></span>
-      </div>
-    <% else %>
-      <div class="ui inverted button right floated">
-        <%= link_to "Register", signup_path %>
-      </div>
-      <div class="ui inverted button right floated">
-        <%= link_to "Log In", signin_path %>
-      </div>
-    <% end %>
-    <h1>San Francisco Pet Finder <i class="paw icon"></i></h1>
+  <div class="ui large inverted menu">
+    <div class="text item">
+      <a id="page-header">San Francisco Pet Finder <i class="paw icon"></i></a>
+    </div>
+
+    <!-- <div class="right menu"> -->
+      <% if current_user %>
+        <a class="right floated item" href="/signout">Sign Out</a>
+        <a class="right floated item" id="welcome-user">Welcome, <%= current_user.firstname %></a>
+      <% else %>
+        <a class="right floated item" href="/signup">Register</a>
+        <a class="right floated item" href="/signin">Sign In</a>
+      <% end %>
+    <!-- </div> -->
   </div>
 
   <%= yield %>
