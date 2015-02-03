@@ -13,7 +13,6 @@
     </div>
       <% if current_user %>
         <a class="right floated item" href="/signout">Sign Out</a>
-        <a class="right floated item" id="welcome-user">Welcome, <%= current_user.firstname %></a>
       <% else %>
         <a class="right floated item" href="/signup">Register</a>
         <a class="right floated item" href="/signin">Sign In</a>

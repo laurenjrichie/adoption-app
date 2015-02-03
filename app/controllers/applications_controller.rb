@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   def create
-    application = Application.new(application_params)
+    application = current_user.applications.new(application_params)
     if application.save
       redirect_to root_path, notice: "Thank you! Your application has been received."
     else

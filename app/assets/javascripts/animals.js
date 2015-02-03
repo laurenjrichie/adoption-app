@@ -45,6 +45,7 @@ function applyForm() {
     var formTemplate = Handlebars.compile($("#adoption-form-template").html());
     $("div.ui.segment.left-side").empty().append(formTemplate);
     $("body").scrollTop(0);
+    // use ajax, prevent devault, send animal ID through in data, grab from right panel on page
     backToAnimals();
   });
 }
