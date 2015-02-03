@@ -13,8 +13,6 @@
     <div class="text item">
       <a id="page-header">San Francisco Pet Finder <i class="paw icon"></i></a>
     </div>
-
-    <!-- <div class="right menu"> -->
       <% if current_user %>
         <a class="right floated item" href="/signout">Sign Out</a>
         <a class="right floated item" id="welcome-user">Welcome, <%= current_user.firstname %></a>
@@ -22,7 +20,6 @@
         <a class="right floated item" href="/signup">Register</a>
         <a class="right floated item" href="/signin">Sign In</a>
       <% end %>
-    <!-- </div> -->
   </div>
 
   <%= yield %>
