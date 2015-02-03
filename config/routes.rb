@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'animals#index'
   get '/animals/:id' => 'animals#show'
 
+  post '/applications' => 'applications#create'
+
   get '/signup' => 'registrations#new', as: :signup
   post '/signup' => 'registrations#create'
   get '/signin' => 'authentication#new', as: :signin

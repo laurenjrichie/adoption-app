@@ -128,150 +128,148 @@
     <a class="section" id="back-to-animals"><i class="long arrow left icon"></i>Back to animals list</a>
   </div>
   <h2 class="ui center aligned header">Adopt me!</h2>
-  <form class="ui form">
+  <%= form_for Application.new, html: {class: "ui form"} do |f| %>
     <h4 class="ui dividing header">Personal Information</h4>
     <div class="two fields">
       <div class="field">
-        <label>Full name</label>
+        <%= f.label "Full name" %>
         <div class="field">
-          <input type="text" name="fullname" placeholder="Name">
+          <%= f.text_field :fullname, placeholder: "Name" %>
         </div>
       </div>
       <div class="field">
-        <label>Email</label>
+        <%= f.label "Email" %>
         <div class="field">
-          <input type="email" name="email" placeholder="Email">
+          <%= f.email_field :email, placeholder: "Email" %>
         </div>
       </div>
     </div>
     <div class="field">
-      <label>Phone</label>
+      <%= f.label "Phone" %>
       <div class="field">
-        <input type="text" name="phone" placeholder="Phone number">
+        <%= f.text_field :phone_number, placeholder: "Phone number" %>
       </div>
     </div>
-    <label>Address</label>
+    <%= f.label "Address" %>
     <div class="four fields">
       <div class="field">
         <div class="field">
-          <input type="text" name="address" placeholder="Street">
+          <%= f.text_field :address, placeholder: "Street" %>
         </div>
       </div>
       <div class="field">
         <div class="field">
-          <input type="text" name="city" placeholder="City">
+          <%= f.text_field :city, placeholder: "City" %>
         </div>
       </div>
       <div class="field">
         <div class="field">
-          <input type="text" name="state" placeholder="State">
+          <%= f.text_field :state, placeholder: "State" %>
         </div>
       </div>
       <div class="field">
         <div class="field">
-          <input type="text" name="zip" placeholder="Zipcode">
+          <%= f.text_field :zipcode, placeholder: "Zipcode" %>
         </div>
       </div>
     </div>
     <h4 class="ui dividing header">Home Information</h4>
     <div class="two fields">
       <div class="field">
-        <label>Do you own or rent?</label>
+        <%= f.label "Do you own or rent?" %>
         <div class="field">
-          <input type="text" name="housing">
+          <%= f.text_field :housing %>
         </div>
       </div>
       <div class="field">
-        <label>If you rent, do you have your landlord's approval?</label>
+        <%= f.label "If you rent, do you have your landlord's approval?" %>
         <div class="field">
-          <input type="text" name="landlord_approval">
+          <%= f.text_field :landlord_approval %>
         </div>
       </div>
     </div>
     <div class="two fields">
       <div class="field">
-        <label>Landlord's name:</label>
+        <%= f.label "Landlord's name" %>
         <div class="field">
-          <input type="text" name="landlord_name">
+          <%= f.text_field :landlord_name %>
         </div>
       </div>
       <div class="field">
-        <label>Landlord's phone:</label>
+        <%= f.label "Landlord's phone" %>
         <div class="field">
-          <input type="text" name="landlord_phone">
+          <%= f.text_field :landlord_phone %>
         </div>
       </div>
     </div>
     <h4 class="ui dividing header">Other</h4>
     <div class="field">
-      <label>What are your daily habits? Are you out all day, out part of the day, home all day?</label>
-      <textarea></textarea>
+      <%= f.label "What are your daily habits? Are you out all day, out part of the day, home all day?" %>
+      <%= f.text_area :habits %>
     </div>
     <div class="field">
-      <label>Please describe your pet history - type of animal, how long you had them, etc.</label>
-      <textarea></textarea>
+      <%= f.label "Please describe your pet history - type of animal, how long you had them, etc." %>
+      <%= f.text_area :pet_history %>
     </div>
     <div class="field">
-      <label>Who is your current vet?</label>
-      <input type="text" name="current_vet">
+      <%= f.label "Who is your current vet?" %>
+      <%= f.text_field :current_vet %>
     </div>
     <div class="two fields">
       <div class="field">
-        <label>How much per year do you expect to spend on your new pet?</label>
+        <%= f.label "How much per year do you expect to spend on your new pet?" %>
         <div class="field">
-          <input type="text" name="expected_costs">
+          <%= f.text_field :expected_costs %>
         </div>
       </div>
       <div class="field">
-        <label>Do you plan to keep your new pet indoors, outdoors, both?</label>
+        <%= f.label "Do you plan to keep your new pet indoors, outdoors, both?" %>
         <div class="field">
-          <input type="text" name="indoor_outdoor">
+          <%= f.text_field :indoor_outdoor %>
         </div>
       </div>
     </div>
     <div class="field">
-      <label>How did you learn about us?</label>
+      <%= f.label "How did you learn about us?" %>
       <div class="field">
-        <input type="text" name="how_learn">
+        <%= f.text_field :how_learn %>
       </div>
     </div>
     <h4 class="ui dividing header">Pet information</h4>
     <div class="two fields">
       <div class="field">
-        <label>Name of animal you wish to adopt:</label>
+        <%= f.label "Name of animal you wish to adopt:" %>
         <div class="field">
-          <input type="text" name="animal_name">
+          <%= f.text_field :animal_name %> <!-- link up to Animals???? -->
         </div>
       </div>
       <div class="field">
-        <label>SPCA ID:</label>
+        <%= f.label "SPCA ID:" %>
         <div class="field">
-          <input type="text" name="spca_id">
+          <%= f.text_field :spca_id %>
         </div>
       </div>
     </div>
     <h4 class="ui dividing header">Signature</h4>
     <div class="field">
       <div class="ui checkbox">
-        <input type="checkbox">
-        <label>I agree to the <a href="#">Terms of Service</a>.</label>
+
       </div>
     </div>
     <div class="two fields">
       <div class="field">
-        <label>Electronic signature:</label>
+        <%= f.label "Electronic signature:" %>
         <div class="field">
-          <input type="text" name="electronic_signature">
+          <%= f.text_field :electronic_signature %>
         </div>
       </div>
       <div class="field">
-        <label>Today's date:</label>
+        <%= f.label "Today's date:" %>
         <div class="field">
-          <input type="text" name="date">
+          <%= f.text_field :date %>
         </div>
       </div>
     </div>
-    <div class="ui submit button">Register</div>
-    <!-- input type submit -->
-  </form>
+    <%= f.submit "Submit", class: "ui submit button" %>
+  <% end %>
 </script>

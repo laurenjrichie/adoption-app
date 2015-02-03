@@ -50,7 +50,7 @@ function applyForm() {
   });
 }
 
-function backToAnimals() {
+function backToAnimals() { // put this in html???
   $(".ui.segment.left-side").on("click", "#back-to-animals", function() {
     window.location = "";
   });
