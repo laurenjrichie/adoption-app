@@ -44,7 +44,6 @@ function applyForm() {
   $("div.ui.segment.right-side").on("click", "div.ui.teal.button", function(event) {
     var formTemplate = Handlebars.compile($("#adoption-form-template").html());
     $("div.ui.segment.left-side").empty().append(formTemplate);
-    // hijack refresh
     $("body").scrollTop(0);
     backToAnimals();
   });

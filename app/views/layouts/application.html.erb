@@ -5,8 +5,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script charset="utf-8" src="/semantic-UI/dist/semantic.min.js"></script>
-  <link rel="stylesheet" href="/semantic-UI/dist/semantic.min.css" charset="utf-8">
 </head>
 <body>
   <div class="ui large inverted menu">
@@ -21,6 +19,14 @@
         <a class="right floated item" href="/signin">Sign In</a>
       <% end %>
   </div>
+
+  <% if notice %>
+    <div class="ui positive message">
+      <div class="header">
+        <p><%= notice %></p>
+      </div>
+    </div>
+  <% end %>
 
   <%= yield %>
 
