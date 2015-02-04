@@ -1,11 +1,17 @@
 class ApplicationsController < ApplicationController
   def create
-    application = current_user.applications.new(application_params)
-    if application.save
-      redirect_to root_path, notice: "Thank you! Your application has been received."
-    else
-      render :new
-    end
+    @application = current_user.applications.new(application_params)
+
+    # respond_to do |format|
+      if @application.save
+        # format.html # { redirect_to root_path, notice: "Thank you! Your application has been received." }
+        # format.json
+      else
+        # format.html # { render :new }
+        # format.json { render json: @application.errors, status: :unprocessable_entity }
+        render json: @application.errors, status: :unprocessable_entity
+      end
+    # end
   end
 
   private

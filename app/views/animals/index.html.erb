@@ -62,28 +62,28 @@
           <div class="ui  attached segment right-side">
             <div class="ui fluid card">
               <div class="image">
-                <%= image_tag(@animal.image_url) %>
+                <%= image_tag(@first_animal.image_url) %>
               </div>
               <div class="content">
                 <a class="right floated created">
                   <div class="ui teal button">ADOPT ME!</div>
                 </a>
-                <h5 class="header"><%= @animal.name %></h5>
+                <h5 class="header"><%= @first_animal.name %></h5>
                 <div class="meta">
-                  <p class="group"><%= @animal.gender %></p>
-                  <p class="group">AGE: <%= @animal.age %></p>
+                  <p class="group"><%= @first_animal.gender %></p>
+                  <p class="group">AGE: <%= @first_animal.age %></p>
                 </div>
                 <div class="description">
-                  <%= @animal.story %>
+                  <%= @first_animal.story %>
                 </div>
               </div>
               <div class="extra content">
                 <span class="right floated created">
-                  SPCA ID: <%= @animal.spca_id %>
+                  SPCA ID: <%= @first_animal.spca_id %>
                 </span>
                 <span class="friends">
                   <i class="user icon"></i>
-                  <%= @animal.weight %>
+                  <%= @first_animal.weight %>
                 </span>
               </div>
             </div>
@@ -128,7 +128,18 @@
     <a class="section" id="back-to-animals"><i class="long arrow left icon"></i>Back to animals list</a>
   </div>
   <h2 class="ui center aligned header">Adopt me!</h2>
-  <%= form_for Application.new, html: {class: "ui form"} do |f| %>
+  <%= form_for @application, format: :json, html: {class: "ui form"} do |f| %>
+
+      <div class="ui negative message" id="form-error">
+        <ul>
+          <% if @application.errors.any? %>
+            <% @application.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+
     <h4 class="ui dividing header">Personal Information</h4>
     <div class="two fields">
       <div class="field">
@@ -140,7 +151,7 @@
       <div class="field">
         <%= f.label "Email" %>
         <div class="field">
-          <%= f.email_field :email, placeholder: "Email" %>
+          <%= f.email_field :email, value: current_user.email %>
         </div>
       </div>
     </div>
@@ -242,11 +253,6 @@
       <p>{{spca_id}}</p>
     </div>
     <h4 class="ui dividing header">Signature</h4>
-    <div class="field">
-      <div class="ui checkbox">
-
-      </div>
-    </div>
     <div class="two fields">
       <div class="field">
         <%= f.label "Electronic signature:" %>
@@ -261,6 +267,9 @@
         </div>
       </div>
     </div>
+
+    <div id="user-id"><%= current_user.id %></div>
+
     <%= f.submit "Submit", class: "ui submit button" %>
   <% end %>
 </script>

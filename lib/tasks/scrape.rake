@@ -33,7 +33,7 @@ end
 
 namespace :shelter do
 
-  desc "This is what shows up when you type rake -T"
+  desc "Clear animals table and reseed with scraped data"
   task scrape: :environment do
     Animal.delete_all
 

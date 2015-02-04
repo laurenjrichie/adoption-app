@@ -45,6 +45,7 @@ function applyForm() {
   $("div.ui.segment.right-side").on("click", "div.ui.teal.button", function(event) {
     var animal_name_to_adopt = $("h5.header").text();
     var spca_id_to_adopt = $("span.right.floated.created").text().trim();
+
     var data = {
       animal: animal_name_to_adopt,
       spca_id: spca_id_to_adopt,
@@ -62,6 +63,7 @@ function submitForm() {
     var new_email = $("#application_email").val();
     var animal_name_to_adopt = $("h5.header").text();
     var spca_id_to_adopt = $("span.right.floated.created").text().trim();
+    var current_user_id = parseInt($("#user-id").text());
 
     event.preventDefault();
     $.ajax('/applications', {
@@ -72,12 +74,15 @@ function submitForm() {
           email: new_email,
           animal_name: animal_name_to_adopt,
           spca_id: spca_id_to_adopt,
+          user_id: current_user_id,
         }
       }
     }).done(function(data) {
-      
+      $("#form-error").hide();
     }).fail(function(data) {
-
+      $("#form-error").show();
+      console.log(data.responseText);
+      // use handlebars to send data to element?
     });
   });
 }

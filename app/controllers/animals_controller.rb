@@ -1,7 +1,8 @@
 class AnimalsController < ApplicationController
   def index
     @animals = Animal.all
-    @animal = Animal.find_by_id(27)
+    @first_animal = Animal.first
+    @application = Application.new
   end
 
   def show
