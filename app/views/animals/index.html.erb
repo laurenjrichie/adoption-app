@@ -128,18 +128,8 @@
     <a class="section" id="back-to-animals"><i class="long arrow left icon"></i>Back to animals list</a>
   </div>
   <h2 class="ui center aligned header">Adopt me!</h2>
+  <div class="ui message"></div>
   <%= form_for @application, format: :json, html: {class: "ui form"} do |f| %>
-
-      <div class="ui negative message" id="form-error">
-        <ul>
-          <% if @application.errors.any? %>
-            <% @application.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
-
     <h4 class="ui dividing header">Personal Information</h4>
     <div class="two fields">
       <div class="field">
@@ -272,4 +262,12 @@
 
     <%= f.submit "Submit", class: "ui submit button" %>
   <% end %>
+</script>
+
+<script charset="utf-8" id="error-message-template" type="text/x-handlebars-template">
+  <ul>
+    {{#each errors}}
+      {{this}}
+    {{/each}}
+  </ul>
 </script>

@@ -45,7 +45,6 @@ function applyForm() {
   $("div.ui.segment.right-side").on("click", "div.ui.teal.button", function(event) {
     var animal_name_to_adopt = $("h5.header").text();
     var spca_id_to_adopt = $("span.right.floated.created").text().trim();
-
     var data = {
       animal: animal_name_to_adopt,
       spca_id: spca_id_to_adopt,
@@ -59,7 +58,10 @@ function applyForm() {
 
 function submitForm() {
   $("div.ui.segment.left-side").on("click", "input.ui.submit.button", function(event) {
-    var new_fullname = $("#application_fullname").val();
+
+    // var formData = new FormData(this)
+
+    var new_fullname = $("#application_fullname").val(); // talk to Rory for how to clean up
     var new_email = $("#application_email").val();
     var animal_name_to_adopt = $("h5.header").text();
     var spca_id_to_adopt = $("span.right.floated.created").text().trim();
@@ -68,7 +70,7 @@ function submitForm() {
     event.preventDefault();
     $.ajax('/applications', {
       type: 'post',
-      data: {
+      data: { // formData (name= thing needed). console.log first. name = user[email]. cache, contenttype, process data false.
         application: {
           fullname: new_fullname,
           email: new_email,
@@ -78,11 +80,17 @@ function submitForm() {
         }
       }
     }).done(function(data) {
-      $("#form-error").hide();
+      $(".ui.message").empty().removeClass('negtive').addClass('success').show().append(
+        "<ul>Thank you! Your application has been submitted.</ul>"
+      );
+      $("body").scrollTop(0);
+      $("form").remove();
     }).fail(function(data) {
-      $("#form-error").show();
-      console.log(data.responseText);
-      // use handlebars to send data to element?
+      $(".ui.message").show().addClass('negative');
+      var data = {errors: data.responseJSON};
+      var errorTemplate = Handlebars.compile($("#error-message-template").html());
+      $(".ui.message").append(errorTemplate(data));
+      $("body").scrollTop(0);
     });
   });
 }
