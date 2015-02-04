@@ -17,25 +17,11 @@
 
       <h4 class="ui dividing header">Account Information</h4>
 
-      <div class="two fields">
-        <div class="required field">
-          <label>Name</label>
-          <div class="two fields">
-            <div class="field">
-              <%= f.text_field :firstname, placeholder: "First Name" %>
-            </div>
-            <div class="field">
-              <%= f.text_field :lastname, placeholder: "Last Name" %>
-            </div>
-          </div>
-        </div>
-
-        <div class="required field">
-          <%= f.label :email %>
-          <div class="ui icon input">
-            <%= f.email_field :email, placeholder: "Email" %>
-            <i class="mail icon"></i>
-          </div>
+      <div class="required field">
+        <%= f.label :email %>
+        <div class="ui icon input">
+          <%= f.email_field :email, placeholder: "Email" %>
+          <i class="mail icon"></i>
         </div>
       </div>
 
