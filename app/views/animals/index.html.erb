@@ -68,7 +68,7 @@
                 <a class="right floated created">
                   <div class="ui teal button">ADOPT ME!</div>
                 </a>
-                <a class="header"><%= @animal.name %></a>
+                <h5 class="header"><%= @animal.name %></h5>
                 <div class="meta">
                   <p class="group"><%= @animal.gender %></p>
                   <p class="group">AGE: <%= @animal.age %></p>
@@ -78,13 +78,13 @@
                 </div>
               </div>
               <div class="extra content">
-                <a class="right floated created">
+                <span class="right floated created">
                   SPCA ID: <%= @animal.spca_id %>
-                </a>
-                <a class="friends">
+                </span>
+                <span class="friends">
                   <i class="user icon"></i>
                   <%= @animal.weight %>
-                </a>
+                </span>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@
       <a class="right floated created">
         <div class="ui teal button">ADOPT ME!</div>
       </a>
-      <a class="header">{{name}}</a>
+      <h5 class="header">{{name}}</h5>
       <div class="meta">
         <p class="group">{{gender}}</p>
         <p class="group">AGE: {{age}}</p>
@@ -113,12 +113,12 @@
       </div>
     </div>
     <div class="extra content">
-      <a class="right floated created">
+      <span class="right floated created">
         SPCA ID: {{spcaid}}
-      </a>
-      <a class="friends">
+      </span>
+      <span class="friends">
         {{weight}}
-      </a>
+      </span>
     </div>
   </div>
 </script>
@@ -235,20 +235,11 @@
         <%= f.text_field :how_learn %>
       </div>
     </div>
-    <h4 class="ui dividing header">Pet information</h4>
-    <div class="two fields">
-      <div class="field">
-        <%= f.label "Name of animal you wish to adopt:" %>
-        <div class="field">
-          <%= f.text_field :animal_name %> <!-- link up to Animals???? -->
-        </div>
-      </div>
-      <div class="field">
-        <%= f.label "SPCA ID:" %>
-        <div class="field">
-          <%= f.text_field :spca_id %>
-        </div>
-      </div>
+    <h4 class="ui dividing header">Adoptee information</h4>
+    <div class="field">
+      <h5>You are applying to adopt:</h5>
+      <p>{{animal}}</p>
+      <p>{{spca_id}}</p>
     </div>
     <h4 class="ui dividing header">Signature</h4>
     <div class="field">

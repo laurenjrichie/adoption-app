@@ -3,6 +3,7 @@ $(document).ready(function(){
   dropDown();
   detailPanel();
   applyForm();
+  submitForm();
 });
 
 function cardsDimmer() {
@@ -42,11 +43,42 @@ function detailPanel() {
 
 function applyForm() {
   $("div.ui.segment.right-side").on("click", "div.ui.teal.button", function(event) {
+    var animal_name_to_adopt = $("h5.header").text();
+    var spca_id_to_adopt = $("span.right.floated.created").text().trim();
+    var data = {
+      animal: animal_name_to_adopt,
+      spca_id: spca_id_to_adopt,
+    };
     var formTemplate = Handlebars.compile($("#adoption-form-template").html());
-    $("div.ui.segment.left-side").empty().append(formTemplate);
+    $("div.ui.segment.left-side").empty().append(formTemplate(data));
     $("body").scrollTop(0);
-    // use ajax, prevent devault, send animal ID through in data, grab from right panel on page
     backToAnimals();
+  });
+}
+
+function submitForm() {
+  $("div.ui.segment.left-side").on("click", "input.ui.submit.button", function(event) {
+    var new_fullname = $("#application_fullname").val();
+    var new_email = $("#application_email").val();
+    var animal_name_to_adopt = $("h5.header").text();
+    var spca_id_to_adopt = $("span.right.floated.created").text().trim();
+
+    event.preventDefault();
+    $.ajax('/applications', {
+      type: 'post',
+      data: {
+        application: {
+          fullname: new_fullname,
+          email: new_email,
+          animal_name: animal_name_to_adopt,
+          spca_id: spca_id_to_adopt,
+        }
+      }
+    }).done(function(data) {
+      
+    }).fail(function(data) {
+
+    });
   });
 }
 
