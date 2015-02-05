@@ -42,7 +42,7 @@ function detailPanel() {
 }
 
 function applyForm() {
-  $("div.ui.segment.right-side").on("click", "div.ui.teal.button", function(event) {
+  $("div.ui.segment.right-side").on("click", "#adopt-me-button", function(event) {
     if($("#user-id").length === 0) {
       var loginMessage = Handlebars.compile($("#login-message-template").html());
       $("div.ui.segment.left-side").empty().append(loginMessage);

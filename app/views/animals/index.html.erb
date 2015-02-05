@@ -60,7 +60,7 @@
         </div>
       </div>
 
-      <div class="four wide column">
+      <div class="four wide column"> <!-- refactor to not duplicate code below? -->
         <div class="sticky-content">
           <h2 class="ui top attached center aligned header">FEATURED</h2>
           <div class="ui  attached segment right-side">
@@ -70,7 +70,7 @@
               </div>
               <div class="content">
                 <a class="right floated created">
-                  <div class="ui teal button">ADOPT ME!</div>
+                  <div class="ui teal button" id="adopt-me-button">ADOPT ME!</div>
                 </a>
                 <h5 class="header"><%= @first_animal.name %></h5>
                 <div class="meta">
@@ -105,7 +105,7 @@
     </div>
     <div class="content">
       <a class="right floated created">
-        <div class="ui teal button">ADOPT ME!</div>
+        <div class="ui teal button" id="adopt-me-button">ADOPT ME!</div>
       </a>
       <h5 class="header">{{name}}</h5>
       <div class="meta">
@@ -269,7 +269,7 @@
         </div>
       </div>
     </div>
-    <%= f.submit "Submit", class: "ui submit button" %>
+    <%= f.submit "Submit", class: "ui submit button", id: "submit-app" %>
   <% end %>
 </script>
 
