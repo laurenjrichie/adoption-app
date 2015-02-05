@@ -79,7 +79,7 @@
               </div>
               <div class="extra content">
                 <span class="right floated created">
-                  SPCA ID: <%= @first_animal.spca_id %>
+                  SPCA ID: <span id="spcaid"><%= @first_animal.spca_id %></span>
                 </span>
                 <span class="friends">
                   <i class="user icon"></i>
@@ -240,8 +240,14 @@
     <div class="field">
       <h5>You are applying to adopt:</h5>
       <p>{{animal}}</p>
-      <p>{{spca_id}}</p>
+      <p>SPCA ID: {{spca_id}}</p>
     </div>
+
+    <div class="field" id="hidden-info">
+      <input type="hidden" name= "application[spca_id]" value={{spca_id}}>
+    </div>
+
+
     <h4 class="ui dividing header">Signature</h4>
     <div class="two fields">
       <div class="field">

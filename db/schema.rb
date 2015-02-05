@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150203230110) do
     t.integer  "expected_costs"
     t.string   "indoor_outdoor"
     t.string   "how_learn"
-    t.string   "animal_name"
+    t.string   "animal_name" # kill this
     t.integer  "spca_id"
     t.string   "electronic_signature"
     t.date     "date"
