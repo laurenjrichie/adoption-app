@@ -43,16 +43,21 @@ function detailPanel() {
 
 function applyForm() {
   $("div.ui.segment.right-side").on("click", "div.ui.teal.button", function(event) {
-    var animal_name_to_adopt = $("h5.header").text();
-    var spca_id_to_adopt = $("span#spcaid").text();
-    var data = {
-      animal: animal_name_to_adopt,
-      spca_id: spca_id_to_adopt,
+    if($("#user-id").length === 0) {
+      var loginMessage = Handlebars.compile($("#login-message-template").html());
+      $("div.ui.segment.left-side").empty().append(loginMessage);
+    } else {
+      var animal_name_to_adopt = $("h5.header").text();
+      var spca_id_to_adopt = $("span#spcaid").text();
+      var data = {
+        animal: animal_name_to_adopt,
+        spca_id: spca_id_to_adopt,
+      };
+      var formTemplate = Handlebars.compile($("#adoption-form-template").html());
+      $("div.ui.segment.left-side").empty().append(formTemplate(data));
+      $("body").scrollTop(0);
+      backToAnimals();
     };
-    var formTemplate = Handlebars.compile($("#adoption-form-template").html());
-    $("div.ui.segment.left-side").empty().append(formTemplate(data));
-    $("body").scrollTop(0);
-    backToAnimals();
   });
 }
 

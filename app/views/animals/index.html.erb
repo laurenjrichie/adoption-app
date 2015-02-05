@@ -1,3 +1,7 @@
+<% if current_user %>
+  <div id="user-id"><%= current_user.id %></div>
+<% end %>
+
 <div class="ui grid">
   <div class="fourteen wide centered column">
     <div class="ui grid">
@@ -131,7 +135,7 @@
     </a>
   </div>
   <h2 class="ui center aligned header">Adopt me!</h2>
-  <div class="ui message"></div>
+  <div class="ui message" id="hidden-error-message"></div>
   <%= form_for @application, html: {class: "ui form"} do |f| %>
     <h4 class="ui dividing header">Personal Information</h4>
     <div class="two fields">
@@ -141,12 +145,14 @@
           <%= f.text_field :fullname, placeholder: "Name" %>
         </div>
       </div>
-      <div class="required field">
-        <%= f.label "Email" %>
-        <div class="field">
-          <%= f.email_field :email, value: current_user.email %>
+      <% if current_user %>
+        <div class="required field">
+          <%= f.label "Email" %>
+          <div class="field">
+            <%= f.email_field :email, value: current_user.email %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
     <div class="field">
       <%= f.label "Phone" %>
@@ -263,7 +269,6 @@
         </div>
       </div>
     </div>
-    <div id="user-id"><%= current_user.id %></div>
     <%= f.submit "Submit", class: "ui submit button" %>
   <% end %>
 </script>
@@ -274,4 +279,12 @@
       <li>{{this}}</li>
     {{/each}}
   </ul>
+</script>
+
+<script charset="utf-8" id="login-message-template" type="text/x-handlebars-template">
+  <div class="ui negative message">
+    <div class="header">
+      Please register or log in to apply to adopt an animal!
+    </div>
+  </div>
 </script>
