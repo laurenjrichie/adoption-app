@@ -56,7 +56,6 @@ function applyForm() {
       var formTemplate = Handlebars.compile($("#adoption-form-template").html());
       $("div.ui.segment.left-side").empty().append(formTemplate(data));
       $("body").scrollTop(0);
-      backToAnimals();
     };
   });
 }
@@ -84,11 +83,5 @@ function submitForm() {
       $(".ui.message").append(errorTemplate(data));
       $("body").scrollTop(0);
     });
-  });
-}
-
-function backToAnimals() { // put this in html???
-  $(".ui.segment.left-side").on("click", "#back-to-animals", function() {
-    window.location = "";
   });
 }
