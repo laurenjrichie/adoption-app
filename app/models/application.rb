@@ -6,5 +6,4 @@ class Application < ActiveRecord::Base
   validates :email, presence: true
   validates :housing, presence: true
   validates :electronic_signature, presence: true
-  validates :date, presence: true
 end
