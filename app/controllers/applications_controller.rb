@@ -5,7 +5,7 @@ class ApplicationsController < ApplicationController
 
       # RestClient.post "https://api:key-5e24817ee2790fa197e3fa04de5af416"\
       #   "@api.mailgun.net/v2/sandboxf5c333696ad6412aa85ef57465590f46.mailgun.org/messages",
-      #   :from => "SF Pet Finder",
+      #   :from => "petfinderSF@pets.com",
       #   :to => "laurenjrichie@gmail.com",
       #   :subject => "Hello Lauren",
       #   :text => "test",

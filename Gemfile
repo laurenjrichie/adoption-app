@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 gem 'nokogiri'
 gem 'rest-client'
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
+gem 'handlebars_assets'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

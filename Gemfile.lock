@@ -63,6 +63,11 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
+    handlebars_assets (0.18)
+      execjs (>= 1.2.9)
+      multi_json
+      sprockets (>= 2.0.3)
+      tilt
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -76,6 +81,9 @@ GEM
       addressable (~> 2.3)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mailgun-ruby (1.0.3)
+      json (~> 1.8)
+      rest-client (~> 1.6)
     mime-types (2.4.3)
     mini_portile (0.6.1)
     minitest (5.5.1)
@@ -168,9 +176,11 @@ DEPENDENCIES
   binding_of_caller
   capybara
   coffee-rails (~> 4.0.0)
+  handlebars_assets
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mailgun-ruby (~> 1.0.2)
   nokogiri
   pg
   rails (= 4.1.8)

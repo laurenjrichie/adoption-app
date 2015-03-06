@@ -9,7 +9,7 @@
         <div class="ui segment left-side">
           <h2 class="ui center aligned header">Available pets from the SPCA</h2>
 
-          <div class="ui floating dropdown labeled icon button">
+          <!-- <div class="ui floating dropdown labeled icon button">
             <i class="filter icon"></i>
             <span class="text">Filter Animals</span>
             <div class="menu">
@@ -31,7 +31,7 @@
                 Cats
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="ui four special cards">
             <% @animals.each do |animal| %>
@@ -118,7 +118,7 @@
     </div>
     <div class="extra content">
       <span class="right floated created">
-        SPCA ID: {{spcaid}}
+        SPCA ID: {{spca_id}}
       </span>
       <span class="friends">
         {{weight}}

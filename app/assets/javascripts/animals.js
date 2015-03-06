@@ -20,20 +20,11 @@ function dropDown() {
 
 function detailPanel() {
   var cards = $("div.ui.special.cards")
-
   cards.on('click', '.ui.inverted.button', function(event) {
     var id = $(this).parent().parent().parent().parent().parent().data('id');
     $.ajax('/animals/' + id, {dataType: "json"}).done(function(data){
-      var detailCardTemplate = Handlebars.compile($("#detail-card-template").html());
-      var data = {
-        image_url: data.image_url,
-        name: data.name,
-        gender: data.gender,
-        age: data.age,
-        weight: data.weight,
-        story: data.story,
-        spcaid: data.spca_id,
-      };
+      var source = $("#detail-card-template").html();
+      var detailCardTemplate = Handlebars.compile(source);
       $("div.ui.segment.right-side").empty().append(detailCardTemplate(data));
     }).fail(function(){
 
@@ -46,6 +37,7 @@ function applyForm() {
     if($("#user-id").length === 0) {
       var loginMessage = Handlebars.compile($("#login-message-template").html());
       $("div.ui.segment.left-side").empty().append(loginMessage);
+      // $("div.ui.segment.left-side").empty().append(HandlebarsTemplates['animals/login_error']());
     } else {
       var animal_name_to_adopt = $("h5.header").text();
       var spca_id_to_adopt = $("span#spcaid").text();
@@ -81,6 +73,7 @@ function submitForm() {
       var data = {errors: data.responseJSON};
       var errorTemplate = Handlebars.compile($("#error-message-template").html());
       $(".ui.message").append(errorTemplate(data));
+      // $(".ui.message").append(HandlebarsTemplates['animals/error_messages'](data));
       $("body").scrollTop(0);
     });
   });
