@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require semantic-ui
 //= require handlebars-v2.0.0.js
+//= require jquery.sticky.js
 //= require_tree ./templates
 //= require_tree .

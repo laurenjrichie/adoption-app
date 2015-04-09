@@ -16,7 +16,6 @@
 
  @import "semantic-ui";
 
-
 #page-header {
   font-size: 2em;
 }
@@ -24,10 +23,6 @@
 #welcome-user {
   pointer-events: none;
   cursor: default;
-}
-
-.sticky-content {
-  position: fixed;
 }
 
 #user-id {

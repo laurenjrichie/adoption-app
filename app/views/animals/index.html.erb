@@ -5,7 +5,7 @@
 <div class="ui grid">
   <div class="fourteen wide centered column">
     <div class="ui grid">
-      <div class="twelve wide column">
+      <div class="ten wide column">
         <div class="ui segment left-side">
           <h2 class="ui center aligned header">Available pets from the SPCA</h2>
 
@@ -60,10 +60,10 @@
         </div>
       </div>
 
-      <div class="four wide column"> <!-- refactor to not duplicate code below? -->
-        <div class="sticky-content">
+      <div class="six wide column">
+        <div id="sticker">
           <h2 class="ui top attached center aligned header">FEATURED</h2>
-          <div class="ui  attached segment right-side">
+          <div class="ui attached segment right-side">
             <div class="ui fluid card">
               <div class="image">
                 <%= image_tag(@first_animal.image_url) %>

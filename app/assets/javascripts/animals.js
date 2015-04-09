@@ -4,6 +4,7 @@ $(document).ready(function(){
   detailPanel();
   applyForm();
   submitForm();
+  $("#sticker").sticky({topSpacing:0});
 });
 
 function cardsDimmer() {
