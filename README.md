@@ -1,4 +1,4 @@
-== San Francisco Pet Finder
+# San Francisco Pet Finder
 
 [Visit live](https://still-dawn-7553.herokuapp.com/)
 
