@@ -1,7 +1,0 @@
-== README
-
-Rails app with some single-page functionality, showing pets available for adoption.
-
-Database seeded from data scraped from the San Franciso SPCA's website.
-
-User can sign in and apply to adopt an animal.
