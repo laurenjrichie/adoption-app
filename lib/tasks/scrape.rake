@@ -40,16 +40,16 @@ namespace :shelter do
     page1_cat_links = get_links("https://www.sfspca.org/adoptions/cats")
     page2_cat_links = get_links("https://www.sfspca.org/adoptions/cats?page=1")
     page3_cat_links = get_links("https://www.sfspca.org/adoptions/cats?page=2")
-    page1_dog_links = get_links("https://www.sfspca.org/adoptions/dogs")
-    page2_dog_links = get_links("https://www.sfspca.org/adoptions/dogs?page=1")
-    page3_dog_links = get_links("https://www.sfspca.org/adoptions/dogs?page=2")
+    # page1_dog_links = get_links("https://www.sfspca.org/adoptions/dogs")
+    # page2_dog_links = get_links("https://www.sfspca.org/adoptions/dogs?page=1")
+    # page3_dog_links = get_links("https://www.sfspca.org/adoptions/dogs?page=2")
 
     create_animal(page1_cat_links)
     create_animal(page2_cat_links)
     create_animal(page3_cat_links)
-    create_animal(page1_dog_links)
-    create_animal(page2_dog_links)
-    create_animal(page3_dog_links)
+    # create_animal(page1_dog_links)
+    # create_animal(page2_dog_links)
+    # create_animal(page3_dog_links)
 
   end
 end
